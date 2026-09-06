@@ -15,10 +15,10 @@ load_dotenv()
 
 client = AsyncOpenAI(
     api_key=os.getenv("GOOGLE_API_KEY") or "unset",
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+    base_url="https://openrouter.ai/api/v1",
 )
 
-model_config = OpenAIChatCompletionsModel(model="gemini-3.5-flash", openai_client=client)
+model_config = OpenAIChatCompletionsModel(model="openrouter/free", openai_client=client)
 
 # Wrap plain Python functions as SDK FunctionTool objects
 recommend_crops_tool = function_tool(farm_tools.recommend_crops)
